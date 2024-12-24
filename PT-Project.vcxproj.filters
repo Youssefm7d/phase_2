@@ -212,8 +212,13 @@
       <Filter>Actions</Filter>
     </ClCompile>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <ClCompile Include="LoadGridAction.cpp">
       <Filter>GameObjects</Filter>
+=======
+    <ClCompile Include="SelectCommandAction.cpp">
+      <Filter>Actions</Filter>
+>>>>>>> c1d968dfdcca8fe2badb914c507c6a5ce290d418
 =======
     <ClCompile Include="SelectCommandAction.cpp">
       <Filter>Actions</Filter>
@@ -361,8 +366,13 @@
       <Filter>Actions</Filter>
     </ClInclude>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <ClInclude Include="LoadGridAction.h">
       <Filter>GameObjects</Filter>
+=======
+    <ClInclude Include="SelectCommandAction.h">
+      <Filter>Actions</Filter>
+>>>>>>> c1d968dfdcca8fe2badb914c507c6a5ce290d418
 =======
     <ClInclude Include="SelectCommandAction.h">
       <Filter>Actions</Filter>
