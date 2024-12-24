@@ -6,7 +6,9 @@ Workshop::Workshop(const CellPosition & workshopPosition):GameObject( workshopPo
 {
 
 }
-
+Objectschoise Workshop::GetType() const{
+	return workshop;
+}
 
 void Workshop::Draw(Output * pOut) const
 {

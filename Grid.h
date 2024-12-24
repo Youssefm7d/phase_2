@@ -39,6 +39,9 @@ public:
 
 	GameObject* Get_object_pos(const CellPosition& pos) const;
 
+	void SaveAll(std::ofstream& OutFile, Objectschoise Type);
+	void Grid::LoadAll(std::ifstream& InFile, Objectschoise Type);
+
 	// ========= Adding or Removing GameObjects to Cells =========
 
 	bool AddObjectToCell(GameObject * pNewObject);		 // Adds a GameObject to the Cell of its "position" data member
@@ -85,7 +88,7 @@ public:
 	~Grid(); // A destructor for any needed deallcations
 	
 
-
+	/*
 	//enum used in each save and load Functions to choose object type
 	enum Objectschoise {
 		flag,
@@ -96,10 +99,9 @@ public:
 		antenna,
 		rotating_gear
 	};
+	*/
 
 	//***************sae***********************//
-	void Grid::SaveAll(std::ofstream& OutFile, Objectschoise Type) ;
-	void Grid::LoadAll(std::ifstream& InFile, Objectschoise Type);
 
 
 };

@@ -9,6 +9,7 @@ class Belt: public GameObject
 	CellPosition endCellPos; // here is the belt's End Cell Position
 public:
 	Belt(const CellPosition & startCellPos, const CellPosition & endCellPos); // A constructor for initialization
+	virtual Objectschoise GetType() const;
 	virtual void Draw(Output* pOut) const; // Draws a belt from its start cell to its end cell
 	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applys the effect of the belt by moving player to belt's end cell
 	virtual void Save(ofstream& OutFile) override;

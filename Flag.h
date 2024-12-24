@@ -7,6 +7,7 @@ class Flag :public GameObject
 	static int flagCount;
 
 public:
+	virtual Objectschoise GetType() const;
 	Flag(const CellPosition & flagposition); // A constructor for initialization
 	static int Getflagcount();
 	static int minusflagcount();

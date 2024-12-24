@@ -6,6 +6,12 @@ Antenna::Antenna(const CellPosition & antennaPosition):GameObject(antennaPositio
 	AntennaCount++;
 }
 
+Objectschoise Antenna::GetType() const
+{
+	return antenna;
+}
+
+
 void Antenna::Draw(Output * pOut) const
 {
 	pOut->DrawAntenna(position);

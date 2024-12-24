@@ -21,6 +21,13 @@ int Flag::Getflagcount() {
 	return flagCount;
 }
 
+Objectschoise Flag::GetType() const
+{
+	return flag;
+}
+
+
+
 void Flag::Apply(Grid* pGrid, Player* pPlayer)
 {
 

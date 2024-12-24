@@ -8,6 +8,12 @@ RotatingGear::RotatingGear(const CellPosition & gearposition,bool clockwise) : G
 	isClockWise = clockwise;
 }
 
+Objectschoise RotatingGear::GetType() const
+{
+	return rotating_gear;
+}
+
+
 void RotatingGear::Draw(Output* pOut) const
 {
 	pOut->DrawRotatingGear(position, isClockWise);

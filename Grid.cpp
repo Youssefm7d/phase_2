@@ -233,28 +233,15 @@ void Grid::PrintErrorMessage(string msg)
 	pOut->ClearStatusBar();
 }
 
-// SaveAll implementation
-void Grid::SaveAll(std::ofstream& OutFile, Objectschoise Type) {
-	int count = 0;
-
-	// First, count the number of objects of the given type
-	for (int i = 0; i < NumVerticalCells; ++i) {
-		for (int j = 0; j < NumHorizontalCells; ++j) {
+void Grid::SaveAll(std::ofstream& OutFile, Objectschoise Type)
+{
+	for (int i = 0; i < NumVerticalCells; ++i)
+	{
+		for (int j = 0; j < NumHorizontalCells; ++j)
+		{
 			GameObject* pGameObject = CellList[i][j]->GetGameObject();
-			if (pGameObject) {
-				count++;
-			}
-		}
-	}
-
-	// Write the count to the file
-	OutFile << count << endl;
-
-	// Then, save each object
-	for (int i = 0; i < NumVerticalCells; ++i) {
-		for (int j = 0; j < NumHorizontalCells; ++j) {
-			GameObject* pGameObject = CellList[i][j]->GetGameObject();
-			if (pGameObject) {
+			if (pGameObject && pGameObject->GetType() == Type) // Filter by type
+			{
 				pGameObject->Save(OutFile);
 			}
 		}

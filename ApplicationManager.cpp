@@ -10,6 +10,7 @@
 #include "AddWaterPitaction.h"
 #include "AddWorkshopAction.h"
 #include "AddDangerZoneAction.h"
+#include "SaveGridAction.h"
 
 ApplicationManager::ApplicationManager()
 {
@@ -109,6 +110,14 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		// create an object of AddFlagAction here
 		pAct = new AddWorkshopAction(this);
 		break;
+
+	case SAVE_GRID:
+		// create an object of AddFlagAction here
+		pAct = new SaveGridAction(this);
+		break;
+
+
+
 
 	case STATUS:	// a click on the status bar ==> no action
 		return;

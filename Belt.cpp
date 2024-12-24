@@ -7,6 +7,12 @@ Belt::Belt(const CellPosition & startCellPos, const CellPosition & endCellPos) :
 
 	///TODO: Do the needed validation
 }
+
+Objectschoise Belt::GetType() const{
+	return belt;
+}
+
+
 void Belt::Draw(Output* pOut) const
 {
 	pOut->DrawBelt(position, endCellPos);

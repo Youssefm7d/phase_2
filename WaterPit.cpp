@@ -6,6 +6,11 @@ WaterPit::WaterPit(const CellPosition & waterPitPosition):GameObject(waterPitPos
 {
 }
 
+Objectschoise WaterPit::GetType() const
+{
+	return water_pit;
+}
+
 void WaterPit::Draw(Output * pOut) const
 {
 	pOut->DrawWaterPit(position);

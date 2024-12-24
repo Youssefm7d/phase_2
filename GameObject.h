@@ -15,7 +15,6 @@ public:
 	GameObject(const CellPosition & pos); // Constructor for initializing data members
 	
 	CellPosition GetPosition() const;     // A Getter for position
-	
 	// ============ Virtual Functions ============
 
 	virtual void Draw(Output* pOut) const = 0;	 // Draws the game object in the window in his position cell 
@@ -25,6 +24,8 @@ public:
 	                                                       // (The effect depends on the GameObject type, so virtual)
 	                                                       // For example, applying a belt is by moving player to the 
 														   // end of the belt, and so on
+
+	virtual Objectschoise GetType() const = 0;	// Returns the type of each game object
 
 	// The following functions are examples of what should be supported by the GameObject class
 	// They should be overridden by each inherited class

@@ -6,6 +6,9 @@ DangerZone::DangerZone(const CellPosition & dangerZonePosition): GameObject(dang
 {
 }
 
+Objectschoise DangerZone::GetType() const{
+	return danger_zone;
+}
 void DangerZone::Draw(Output * pOut) const
 {
 	pOut->DrawDangerZone(position);
