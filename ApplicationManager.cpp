@@ -11,6 +11,7 @@
 #include "AddWorkshopAction.h"
 #include "AddDangerZoneAction.h"
 #include "SaveGridAction.h"
+#include "DeleteGameObject.h"
 
 ApplicationManager::ApplicationManager()
 {
@@ -116,6 +117,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new SaveGridAction(this);
 		break;
 
+	case DELETE_GAME_OBJECT:
+		// create an object of AddFlagAction here
+		pAct = new DeleteGameObject(this);
+		break;
 
 
 

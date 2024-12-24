@@ -56,9 +56,20 @@ enum ActionType // The actions supported (add more as needed)
 enum Direction // Directions of the game
 {
 	UP,
-	DOWN,
 	RIGHT,
+	DOWN,
 	LEFT
+};
+
+//enum used in each save and load Functions to choose object type
+enum Objectschoise {
+	flag,
+	water_pit,
+	danger_zone,
+	belt,
+	workshop,
+	antenna,
+	rotating_gear
 };
 
 enum Command
@@ -75,17 +86,5 @@ enum Command
 
 	COMMANDS_COUNT,
 };
-
-//enum used in each save and load Functions to choose object type
-enum Objectschoise {
-	flag,
-	water_pit,
-	danger_zone,
-	belt,
-	workshop,
-	antenna,
-	rotating_gear
-};
-
 
 #endif

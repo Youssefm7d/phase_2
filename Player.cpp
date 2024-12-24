@@ -40,7 +40,8 @@ void Player::Draw(Output* pOut) const
 
 
 	///TODO: use the appropriate output function to draw the player with "playerColor"
-
+	pOut->DrawPlayer(pCell->GetCellPosition(), playerNum, playerColor, currDirection);
+	//DONE
 }
 
 void Player::ClearDrawing(Output* pOut) const
@@ -50,16 +51,53 @@ void Player::ClearDrawing(Output* pOut) const
 	
 	
 	///TODO: use the appropriate output function to draw the player with "cellColor" (to clear it)
-
+	pOut->DrawCell(pCell->GetCellPosition(), cellColor);
+	//DONE
 }
 
 // ====== Game Functions ======
 
-void Player::Move(Grid * pGrid, Command moveCommands[])
+void Player::Move(Grid* pGrid, Command moveCommands[])
 {
-
+	int x, y;
 	///TODO: Implement this function using the guidelines mentioned below
+	CellPosition newPos= pCell->GetCellPosition();
+	for (int i = 0; (i < 5 && moveCommands[i] != NO_COMMAND); i++) {
+		switch (moveCommands[i])
+		{
+		case MOVE_FORWARD_ONE_STEP:
+			newPos.AddCellNum(1, currDirection);
+			break;
+		case MOVE_FORWARD_TWO_STEPS:
+			newPos.AddCellNum(2, currDirection);
+			break;
+		case MOVE_FORWARD_THREE_STEPS:
+			newPos.AddCellNum(3, currDirection);
+			break;
+		case MOVE_BACKWARD_ONE_STEP:
+			newPos.AddCellNum(-1, currDirection);
+			break;
+		case MOVE_BACKWARD_TWO_STEPS:
+			newPos.AddCellNum(-2, currDirection);
+			break;
+		case MOVE_BACKWARD_THREE_STEPS:
+			newPos.AddCellNum(-3, currDirection);
+			break;
+		case ROTATE_CLOCKWISE:
+			currDirection= (Direction)((currDirection < LEFT) ? currDirection + 1 : 0); 
+			break;
+		case ROTATE_COUNTERCLOCKWISE:
+			currDirection = (Direction)((currDirection > UP) ? currDirection - 1 : 3);
+			break;
+		}
 
+		pGrid->UpdatePlayerCell(this, newPos);
+
+		pGrid->GetOutput()->PrintMessage("Click anywhere to execute the next command");
+		pGrid->GetInput()->GetPointClicked(x, y);
+	}
+
+	pCell->GetGameObject()->Apply(pGrid, this);
 	// - If a player has 5 (could have less) saved moveCommands, the robot will execute the first saved command,
 	//		then wait for a mouse click (display a message "Click anywhere to execute the next command").
 	//		After executing all the 5 saved commands, the game object effect at the final destination cell will
@@ -74,8 +112,8 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 void Player::AppendPlayerInfo(string & playersInfo) const
 {
 	// TODO: Modify the Info as needed
-	playersInfo += "P" + to_string(playerNum) + "(" ;
-	playersInfo += to_string(currDirection) + ", ";
-	playersInfo += to_string(health) + ")";
+	playersInfo += "Player " + to_string(playerNum) + " (" ;
+	playersInfo += "Direction: " + to_string(currDirection) + ", ";
+	playersInfo += "Health: " + to_string(health) + ")";
 
 }

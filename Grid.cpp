@@ -1,5 +1,4 @@
 #include "Grid.h"
-
 #include <fstream>
 #include "Cell.h"
 #include "GameObject.h"
@@ -235,27 +234,50 @@ void Grid::PrintErrorMessage(string msg)
 
 void Grid::SaveAll(std::ofstream& OutFile, Objectschoise Type)
 {
+	int count = 0;
+
+	// Count objects of the specified type
 	for (int i = 0; i < NumVerticalCells; ++i)
 	{
 		for (int j = 0; j < NumHorizontalCells; ++j)
 		{
 			GameObject* pGameObject = CellList[i][j]->GetGameObject();
-			if (pGameObject && pGameObject->GetType() == Type) // Filter by type
+			if (pGameObject && pGameObject->GetType() == Type)
 			{
-				pGameObject->Save(OutFile);
+				count++;
+			}
+		}
+	}
+
+	// Write the count
+	OutFile << count << std::endl;
+
+	// Save each object
+	for (int i = 0; i < NumVerticalCells; ++i)
+	{
+		for (int j = 0; j < NumHorizontalCells; ++j)
+		{
+			GameObject* pGameObject = CellList[i][j]->GetGameObject();
+			if (pGameObject && pGameObject->GetType() == Type)
+			{
+				pGameObject->Save(OutFile); // Each object writes its own data in the required format
 			}
 		}
 	}
 }
 
+
 void Grid::LoadAll(std::ifstream& InFile, Objectschoise Type) {
 	int count;
-	InFile >> count;
+	InFile >> count; // Read the number of objects of this type
 
-	for (int i = 0; i < count; ++i) {
+	for (int i = 0; i < count; ++i)
+	{
 		GameObject* pGameObject = nullptr;
 
-		switch (Type) {
+		// Create an object of the correct type
+		switch (Type)
+		{
 		case flag:
 			pGameObject = new Flag(CellPosition());
 			break;
@@ -266,7 +288,7 @@ void Grid::LoadAll(std::ifstream& InFile, Objectschoise Type) {
 			pGameObject = new DangerZone(CellPosition());
 			break;
 		case belt:
-			pGameObject = new Belt(CellPosition(), CellPosition());//wrong but for now
+			pGameObject = new Belt(CellPosition(), CellPosition());
 			break;
 		case workshop:
 			pGameObject = new Workshop(CellPosition());
@@ -275,11 +297,16 @@ void Grid::LoadAll(std::ifstream& InFile, Objectschoise Type) {
 			pGameObject = new Antenna(CellPosition());
 			break;
 		case rotating_gear:
-			pGameObject = new RotatingGear(CellPosition(), 1); //wrong
+			pGameObject = new RotatingGear(CellPosition(),0);
 			break;
 		}
 
-
+		if (pGameObject)
+		{
+			// Load the object's data from the file
+			pGameObject->Load(InFile);
+			AddObjectToCell(pGameObject);
+		}
 	}
 }
 
