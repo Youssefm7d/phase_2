@@ -17,8 +17,8 @@ void RebootAndRepairAction::ReadActionParameters()
 	Input* pIn = pGrid->GetInput();
 	Output* pOut = pGrid->GetOutput();
 
-	pPlayer = pGrid->GetCurrentPlayer();
 	pOut->PrintMessage("Click anywhere to reboot and repair your health");
+	pPlayer = pGrid->GetCurrentPlayer();
 
 	pManager->GetGrid()->GetOutput()->ClearStatusBar();
 }

@@ -10,6 +10,12 @@ AvailableCommands::AvailableCommands()
 }
 
 
+void AvailableCommands::DrawAvailableCommfands(Output* pOut)
+{
+
+}
+
+
 void AvailableCommands::AddCommand(Command avaComm)
 {
 

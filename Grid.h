@@ -5,6 +5,7 @@
 #include "Input.h"
 #include "Output.h"
 #include "CellPosition.h"
+#include "AvailableCommands.h"
 
 
 
@@ -27,6 +28,8 @@ class Grid
 							// currPlayerNumber is: from 0 to MaxPlayerCount - 1
 
 	GameObject * Clipboard;	   // This is used in copy/cut/paste game objects (should be set in copy/cut and got in paste)
+
+	//AvailableCommands availableCommands;
 
 	bool endGame;	       // A boolean indicating if the Game is ended or not (a player reaches the flag cell or not)
 	//ADDED Trackers
@@ -68,12 +71,13 @@ public:
 
 	void AdvanceCurrentPlayer();     // Increments the currPlayerNum and if reaches MaxPlayerCount reset to 0 (using %)
 
+	//AvailableCommands GetAvailableCommands() const;
 	///TODO: add any needed setter/getter "EXCEPT" ANY setters or getters of "CellList" or "PlayerList" (Forbidden for class Responsibilities)
 
 	// ========= Other Getters =========
 	
 	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	                          
-	Player* Grid::Get_player_pos(const CellPosition& pos) const;
+	Player * Get_player_pos(const CellPosition& pos) const;
 	Belt * GetNextBelt(const CellPosition & position);  // Gets a Pointer to the first Belth after the passed "position"
 
 	// ========= User Interface Functions =========
