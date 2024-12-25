@@ -245,6 +245,9 @@
     <ClCompile Include="LoadGridAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="ExecuteCommandsAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -415,6 +418,9 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="LoadGridAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="ExecuteCommandsAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

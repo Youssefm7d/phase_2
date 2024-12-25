@@ -13,7 +13,12 @@
 #include "SaveGridAction.h"
 #include "DeleteGameObject.h"
 #include "LoadGridAction.h"
+<<<<<<< Updated upstream
 #include "copy.h"
+=======
+#include "SelectCommandAction.h"
+#include "ExecuteCommandsAction.h"
+>>>>>>> Stashed changes
 
 ApplicationManager::ApplicationManager()
 {
@@ -137,9 +142,20 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new DeleteGameObject(this);
 		break;
 
+<<<<<<< Updated upstream
 	case COPY_GAME_OBJECT:
 		pAct = new CopyGameObject(this);
 		break;
+=======
+	case SELECT_COMMAND:
+		pAct = new SelectCommandAction(this);
+		break;
+
+	case EXECUTE_COMMANDS:
+		pAct = new ExecuteCommandsAction(this);
+		break;
+
+>>>>>>> Stashed changes
 
 
 	case STATUS:	// a click on the status bar ==> no action
