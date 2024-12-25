@@ -223,6 +223,18 @@
     <ClCompile Include="SelectedCommands.cpp">
       <Filter>Commands</Filter>
     </ClCompile>
+    <ClCompile Include="RebootAndRepairAction.cpp" />
+    <ClCompile Include="UseHackDevice.cpp" />
+    <ClCompile Include="UseToolKitAction.cpp" />
+    <ClCompile Include="cut.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="copy.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadGridAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -372,6 +384,18 @@
     </ClInclude>
     <ClInclude Include="SelectedCommands.h">
       <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="RebootAndRepairAction.h" />
+    <ClInclude Include="UseHackDevice.h" />
+    <ClInclude Include="UseToolKitAction.h" />
+    <ClInclude Include="cut.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="copy.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadGridAction.h">
+      <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

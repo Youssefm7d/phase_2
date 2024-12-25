@@ -13,6 +13,7 @@
 #include "SaveGridAction.h"
 #include "DeleteGameObject.h"
 #include "LoadGridAction.h"
+#include "copy.h"
 
 ApplicationManager::ApplicationManager()
 {
@@ -136,6 +137,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new DeleteGameObject(this);
 		break;
 
+	case COPY_GAME_OBJECT:
+		pAct = new CopyGameObject(this);
+		break;
 
 
 	case STATUS:	// a click on the status bar ==> no action

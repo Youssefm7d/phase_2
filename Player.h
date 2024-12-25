@@ -19,6 +19,7 @@ class Player
 	// carried consumables
 	// carried laser type (default, double laser)
 	// isHacked (to indicate whether the player is blocked to play the round, as a result of the opponent using a hacking device)
+
 	SelectedCommands moveCommands;
 	int ownedToolKits;
 	int ownedHackDevices;

@@ -178,12 +178,15 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant1.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant2.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c" />
+    <ClCompile Include="copy.cpp" />
+    <ClCompile Include="cut.cpp" />
     <ClCompile Include="DangerZone.cpp" />
     <ClCompile Include="DeleteGameObject.cpp" />
     <ClCompile Include="Flag.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="LoadGridAction.cpp" />
     <ClCompile Include="Output.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -232,6 +235,8 @@
     <ClInclude Include="CMUgraphicsLib\jpeg\jpegint.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jpeglib.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jversion.h" />
+    <ClInclude Include="copy.h" />
+    <ClInclude Include="cut.h" />
     <ClInclude Include="DangerZone.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="DeleteGameObject.h" />
@@ -239,6 +244,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="LoadGridAction.h" />
     <ClInclude Include="Output.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RebootAndRepairAction.h" />
