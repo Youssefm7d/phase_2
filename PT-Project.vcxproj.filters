@@ -25,6 +25,9 @@
     <Filter Include="GUIClasses">
       <UniqueIdentifier>{03fd4e0d-92e0-4271-bb9b-d6e9f21ec35f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Commands">
+      <UniqueIdentifier>{c5c43833-6e9f-4dad-9a31-0806e2d8dd73}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CMUgraphicsLib\auxil.cpp">
@@ -211,18 +214,14 @@
     <ClCompile Include="SaveGridAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <ClCompile Include="LoadGridAction.cpp">
-      <Filter>GameObjects</Filter>
-=======
     <ClCompile Include="SelectCommandAction.cpp">
       <Filter>Actions</Filter>
->>>>>>> c1d968dfdcca8fe2badb914c507c6a5ce290d418
-=======
-    <ClCompile Include="SelectCommandAction.cpp">
-      <Filter>Actions</Filter>
->>>>>>> c1d968dfdcca8fe2badb914c507c6a5ce290d418
+    </ClCompile>
+    <ClCompile Include="AvailableCommands.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectedCommands.cpp">
+      <Filter>Commands</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -365,18 +364,14 @@
     <ClInclude Include="SaveGridAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <ClInclude Include="LoadGridAction.h">
-      <Filter>GameObjects</Filter>
-=======
     <ClInclude Include="SelectCommandAction.h">
       <Filter>Actions</Filter>
->>>>>>> c1d968dfdcca8fe2badb914c507c6a5ce290d418
-=======
-    <ClInclude Include="SelectCommandAction.h">
-      <Filter>Actions</Filter>
->>>>>>> c1d968dfdcca8fe2badb914c507c6a5ce290d418
+    </ClInclude>
+    <ClInclude Include="AvailableCommands.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectedCommands.h">
+      <Filter>Commands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

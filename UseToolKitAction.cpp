@@ -1,43 +1,46 @@
-#include "SelectCommandAction.h"
-#include "SelectedCommands.h"
+#include "UseToolKitAction.h"
+#include "Player.h"
 #include "Grid.h"
 
 
 
-SelectCommandAction::SelectCommandAction(ApplicationManager* pApp) : Action(pApp)
+UseToolKitAction::UseToolKitAction(ApplicationManager* pApp) : Action(pApp)
 {
+	pRepairingPlayer = NULL;
 	// Initializes the pManager pointer of Action with the passed pointer
 }
 
-void SelectCommandAction::ReadActionParameters()
+void UseToolKitAction::ReadActionParameters()
 {
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 	Grid* pGrid = pManager->GetGrid();
 	Input* pIn = pGrid->GetInput();
 	Output* pOut = pGrid->GetOutput();
 
-	pOut->PrintMessage("Click on the command you want to select");
-	selectedCommand = (Command)pIn->GetSelectedCommandIndex();
-
+	pOut->PrintMessage("Click anywhere to repair your health");
+	pRepairingPlayer = pGrid->GetCurrentPlayer();
 
 	pManager->GetGrid()->GetOutput()->ClearStatusBar();
 }
 
-void SelectCommandAction::Execute()
+void UseToolKitAction::Execute()
 {
 	// The first line of any Action Execution is to read its parameter first 
 	// and hence initializes its data members
 	ReadActionParameters();
+
+	Grid* pGrid = pManager->GetGrid();
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 	// == Here are some guideline steps (numbered below) to implement this function ==
-
-	// 1-Create a flag object
-	// 2-get a pointer to the Grid from the ApplicationManager
-	// 3-Add the flag object to the GameObject of its Cell:
-	// 4-Check if the flag was added and print an errror message if flag couldn't be added
-
+	if (pRepairingPlayer->GetHealth() == 10) {
+		pGrid->PrintErrorMessage("Your Health Is Already Full");
+		return;
+	}
+	else {
+		pRepairingPlayer->SetHealth(10);
+	}
 }
 
-SelectCommandAction::~SelectCommandAction()
+UseToolKitAction::~UseToolKitAction()
 {
 }

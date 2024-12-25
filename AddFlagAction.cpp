@@ -10,7 +10,6 @@ AddFlagAction::AddFlagAction(ApplicationManager *pApp) : Action(pApp)
 
 void AddFlagAction::ReadActionParameters()
 {
-
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 	// == Here are some guideline steps (numbered below) to implement this function ==
 	// 1- Get a Pointer to the Input / Output Interfaces

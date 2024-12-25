@@ -18,6 +18,10 @@ class Player
 	// carried consumables
 	// carried laser type (default, double laser)
 	// isHacked (to indicate whether the player is blocked to play the round, as a result of the opponent using a hacking device)
+	int ownedToolKits;
+	int ownedHackDevices;
+	bool doubleLaser;
+	bool roundFinishedOrHacked;
 	
 	
 public:
@@ -34,6 +38,17 @@ public:
 
 
 	///TODO: You can add setters and getters for data members here (if needed)
+
+	void BuyToolKit(void);
+	bool UseToolKit(void);
+
+	void BuyHackDevice(void);
+	bool UseHackDevice(void);
+
+	bool BuyDoubleLaser(void);
+
+	void FinishPlayingRound(void);
+	void ResetRound(void);
 
 	// ====== Drawing Functions ======
 

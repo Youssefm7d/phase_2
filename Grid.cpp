@@ -141,8 +141,18 @@ void Grid::AdvanceCurrentPlayer()
 	currPlayerNumber = (currPlayerNumber + 1) % MaxPlayerCount; // this generates value from 0 to MaxPlayerCount - 1
 }
 
-
-
+Player* Grid::Get_player_pos(const CellPosition& pos) const
+{
+	CellPosition playerPos;
+	for (int i = 0; i < MaxPlayerCount; i++) {
+		playerPos = PlayerList[i]->GetCell()->GetCellPosition();
+		if ((pos.HCell() == playerPos.HCell()) && (pos.VCell() == playerPos.VCell())) // Check if the position is valid
+		{
+			return PlayerList[i];
+		}
+	}
+	return NULL; // Return NULL if the position is invalid
+}
 
 
 // ========= Other Getters =========
@@ -171,6 +181,8 @@ Belt * Grid::GetNextBelt(const CellPosition & position)
 	}
 	return NULL; // not found
 }
+
+
 
 
 // ========= User Interface Functions =========

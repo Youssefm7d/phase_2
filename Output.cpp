@@ -203,14 +203,6 @@ void Output::DrawTriangle(int triangleCenterX, int triangleCenterY, int triangle
 		break;
 
 	///TODO: Continue the implementation
-	case DOWN:
-		x1 = triangleCenterX - triangleWidth / 2;
-		y1 = triangleCenterY - triangleHeight / 2;
-		x2 = triangleCenterX + triangleWidth / 2;
-		y2 = triangleCenterY - triangleHeight / 2;
-		x3 = triangleCenterX;
-		y3 = triangleCenterY + triangleHeight / 2;
-		break;
 	case RIGHT:
 		x1 = triangleCenterX - triangleHeight / 2;
 		y1 = triangleCenterY - triangleWidth / 2;
@@ -218,6 +210,14 @@ void Output::DrawTriangle(int triangleCenterX, int triangleCenterY, int triangle
 		y2 = triangleCenterY + triangleWidth / 2;
 		x3 = triangleCenterX + triangleHeight / 2;
 		y3 = triangleCenterY;
+		break;
+	case DOWN:
+		x1 = triangleCenterX - triangleWidth / 2;
+		y1 = triangleCenterY - triangleHeight / 2;
+		x2 = triangleCenterX + triangleWidth / 2;
+		y2 = triangleCenterY - triangleHeight / 2;
+		x3 = triangleCenterX;
+		y3 = triangleCenterY + triangleHeight / 2;
 		break;
 	case LEFT:
 		x1 = triangleCenterX + triangleHeight / 2;
@@ -237,8 +237,8 @@ void Output::DrawTriangle(int triangleCenterX, int triangleCenterY, int triangle
 		break;
 	}
 
+	pWind->SetPen(triangleColor, penWidth);
 	pWind->SetBrush(triangleColor);
-
 	pWind->DrawTriangle(x1, y1, x2, y2, x3, y3, style);
 
 }

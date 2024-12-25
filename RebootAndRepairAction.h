@@ -2,18 +2,18 @@
 #include "Action.h"
 #include "Input.h"
 #include "Output.h"
-class SelectCommandAction :public Action
+class RebootAndRepairAction :public Action
 {
 	// Always add action parameters as private data members
 
 	// [Action Parameters]
-	Command selectedCommand; //The selected command
+	Player* pPlayer; //pointer to the current player choosing the action
 public:
 
-	SelectCommandAction(ApplicationManager* pApp);
+	RebootAndRepairAction(ApplicationManager* pApp);
 	virtual void ReadActionParameters(); // Reads action parameters 
 
 	virtual void Execute();
 
-	~SelectCommandAction();
+	~RebootAndRepairAction();
 };
