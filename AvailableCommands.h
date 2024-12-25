@@ -17,6 +17,8 @@ public:
 
 	void DrawAvailableCommands(Output* pOut);
 
+	Command GetCommand(int index);
+
 
 	~AvailableCommands();
 };

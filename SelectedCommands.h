@@ -13,7 +13,12 @@ class SelectedCommands
 public:
 
 	SelectedCommands();
+
 	void AddCommand(Command selecComm, Player* pPlayer);
+
+	Command GetCommand(int index);
+
+	void ResetSelectedCommands(void);
 
 
 	~SelectedCommands();

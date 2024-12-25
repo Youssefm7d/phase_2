@@ -16,6 +16,12 @@ void AvailableCommands::AddCommand(Command avaComm)
 }
 
 
+Command AvailableCommands::GetCommand(int index)
+{
+	return availableCommands[index];
+}
+
+
 AvailableCommands::~AvailableCommands()
 {
 }

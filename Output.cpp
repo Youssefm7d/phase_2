@@ -15,10 +15,6 @@ static bool CellObjectValidation(const Output* pOut, const CellPosition& cellPos
 		pOut->PrintMessage("Can’t insert an object in the start cell");
 		return false;
 	}
-	else if (0/*another object exists in this cell*/) {
-		pOut->PrintMessage("A game object already exists in this cell");
-		return false;
-	}
 	else
 		return true;
 }

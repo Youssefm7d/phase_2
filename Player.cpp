@@ -1,5 +1,4 @@
 #include "Player.h"
-
 #include "GameObject.h"
 
 Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNum(playerNum), currDirection(RIGHT)
@@ -113,13 +112,13 @@ void Player::ClearDrawing(Output* pOut) const
 
 // ====== Game Functions ======
 
-void Player::Move(Grid* pGrid, Command moveCommands[])
+void Player::Move(Grid* pGrid/*, Command moveCommands[]*/)
 {
 	int x, y;
 	///TODO: Implement this function using the guidelines mentioned below
 	CellPosition newPos= pCell->GetCellPosition();
-	for (int i = 0; (i < 5 && moveCommands[i] != NO_COMMAND); i++) {
-		switch (moveCommands[i])
+	for (int i = 0; (i < 5 && moveCommands.GetCommand(i) != NO_COMMAND); i++) {
+		switch (moveCommands.GetCommand(i))
 		{
 		case MOVE_FORWARD_ONE_STEP:
 			newPos.AddCellNum(1, currDirection);
