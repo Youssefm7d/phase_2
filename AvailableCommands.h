@@ -9,13 +9,13 @@ class AvailableCommands
 	// Always add action parameters as private data members
 
 	int availableCommandsCount;
-	Command availableCommands[MaxAvailableCommands]; // 1- The position of the flag
+	Command availableCommands[MaxAvailableCommands];
 public:
 
 	AvailableCommands();
 	void AddCommand(Command avaComm);
 
-	void DrawAvailableCommands(Output* pOut);
+	void DrawAvailableCommfands(Output* pOut);
 
 	Command GetCommand(int index);
 

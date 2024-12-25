@@ -53,6 +53,8 @@ public:
 	void FinishPlayingRound(void);
 	void ResetRound(void);
 
+	SelectedCommands GetSelectedCommands(void);
+
 	// ====== Drawing Functions ======
 
 	void Draw(Output* pOut) const;			// Draws the Player's Triangle on its current cell

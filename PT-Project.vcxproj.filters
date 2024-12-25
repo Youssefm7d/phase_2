@@ -223,6 +223,7 @@
     <ClCompile Include="SelectedCommands.cpp">
       <Filter>Commands</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="RebootAndRepairAction.cpp" />
     <ClCompile Include="UseHackDevice.cpp" />
     <ClCompile Include="UseToolKitAction.cpp" />
@@ -230,6 +231,15 @@
       <Filter>Actions</Filter>
     </ClCompile>
     <ClCompile Include="copy.cpp">
+=======
+    <ClCompile Include="UseToolKitAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="UseHackDevice.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="RebootAndRepairAction.cpp">
+>>>>>>> 48ce3ef6b04d058d20757e066b829e095302e7d4
       <Filter>Actions</Filter>
     </ClCompile>
     <ClCompile Include="LoadGridAction.cpp">
@@ -385,6 +395,7 @@
     <ClInclude Include="SelectedCommands.h">
       <Filter>Commands</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="RebootAndRepairAction.h" />
     <ClInclude Include="UseHackDevice.h" />
     <ClInclude Include="UseToolKitAction.h" />
@@ -392,6 +403,15 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="copy.h">
+=======
+    <ClInclude Include="UseToolKitAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="UseHackDevice.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="RebootAndRepairAction.h">
+>>>>>>> 48ce3ef6b04d058d20757e066b829e095302e7d4
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="LoadGridAction.h">

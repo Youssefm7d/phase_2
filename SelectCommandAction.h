@@ -8,6 +8,7 @@ class SelectCommandAction :public Action
 
 	// [Action Parameters]
 	Command selectedCommand; //The selected command
+	Player* pPlayer; //pointer to the current player choosing the action
 public:
 
 	SelectCommandAction(ApplicationManager* pApp);

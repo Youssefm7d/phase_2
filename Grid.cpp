@@ -10,6 +10,7 @@
 #include "RotatingGear.h"
 #include "WaterPit.h"
 #include "Workshop.h"
+#include "AvailableCommands.h"
 
 
 Grid::Grid(Input * pIn, Output * pOut) : pIn(pIn), pOut(pOut) // Initializing pIn, pOut
@@ -71,8 +72,7 @@ GameObject* Grid::Get_object_pos(const CellPosition& pos) const
 {
 	if (pos.IsValidCell()) // Check if the position is valid
 	{
-		// Retrieve the GameObject pointer from the specified cell
-		return CellList[pos.VCell()][pos.HCell()]->GetGameObject();
+		// Retrieve the[pos.VCell()][pos.HCell()]->GetGameObject();
 	}
 	return NULL; // Return NULL if the position is invalid
 }
@@ -172,8 +172,6 @@ Belt * Grid::GetNextBelt(const CellPosition & position)
 	{
 		for (int j = startH; j < NumHorizontalCells; j++) // searching from startH and RIGHT
 		{
-
-
 			///TODO: Check if CellList[i][j] has a belt, if yes return it
 			
 
@@ -183,7 +181,10 @@ Belt * Grid::GetNextBelt(const CellPosition & position)
 	return NULL; // not found
 }
 
-
+AvailableCommands Grid::GetAvailableCommands() const
+{
+	return availableCommands;
+}
 
 
 // ========= User Interface Functions =========

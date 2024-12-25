@@ -199,14 +199,6 @@ void Output::DrawTriangle(int triangleCenterX, int triangleCenterY, int triangle
 		break;
 
 	///TODO: Continue the implementation
-	case RIGHT:
-		x1 = triangleCenterX - triangleHeight / 2;
-		y1 = triangleCenterY - triangleWidth / 2;
-		x2 = triangleCenterX - triangleHeight / 2;
-		y2 = triangleCenterY + triangleWidth / 2;
-		x3 = triangleCenterX + triangleHeight / 2;
-		y3 = triangleCenterY;
-		break;
 	case DOWN:
 		x1 = triangleCenterX - triangleWidth / 2;
 		y1 = triangleCenterY - triangleHeight / 2;
@@ -214,6 +206,14 @@ void Output::DrawTriangle(int triangleCenterX, int triangleCenterY, int triangle
 		y2 = triangleCenterY - triangleHeight / 2;
 		x3 = triangleCenterX;
 		y3 = triangleCenterY + triangleHeight / 2;
+		break;
+	case RIGHT:
+		x1 = triangleCenterX - triangleHeight / 2;
+		y1 = triangleCenterY - triangleWidth / 2;
+		x2 = triangleCenterX - triangleHeight / 2;
+		y2 = triangleCenterY + triangleWidth / 2;
+		x3 = triangleCenterX + triangleHeight / 2;
+		y3 = triangleCenterY;
 		break;
 	case LEFT:
 		x1 = triangleCenterX + triangleHeight / 2;
@@ -233,8 +233,8 @@ void Output::DrawTriangle(int triangleCenterX, int triangleCenterY, int triangle
 		break;
 	}
 
-	pWind->SetPen(triangleColor, penWidth);
 	pWind->SetBrush(triangleColor);
+
 	pWind->DrawTriangle(x1, y1, x2, y2, x3, y3, style);
 
 }
@@ -496,9 +496,9 @@ void Output::PrintPlayersInfo(string info)
 	//DONE
 
 	// Set the start X & Y coordinate of drawing the string
-	int x = UI.width - w - 20; // space 20 before the right-side of the window
+	int x = UI.width - w - 10; // space 20 before the right-side of the window
 	// ( - w ) because x is the coordinate of the start point of the string (upper left)
-	int y = (UI.ToolBarHeight - h) / 2; // in the Middle of the toolbar height
+	int y = ((UI.ToolBarHeight - h) / 2) + 15; // in the Middle of the toolbar height
 
 	///TODO: Draw the string "info" in the specified location (x, y)
 	pWind->DrawString(x, y, info);
@@ -597,10 +597,14 @@ void Output::DrawPlayer(const CellPosition & cellPos, int playerNum, color playe
 void Output::DrawBelt(const CellPosition& fromCellPos, const CellPosition& toCellPos) const
 {
 	// TODO: Validate the fromCell and toCell (Must be Horizontal or Vertical, and we can't have the first cell as a starting cell for a belt)
-	/*if ((!fromCellPos.IsValidCell()) || (!fromCellPos.IsValidCell()))
+	if (!CellObjectValidation(this, fromCellPos))
 		return;
-	else*/ if ((fromCellPos.HCell() != toCellPos.HCell()) && (fromCellPos.VCell() != toCellPos.VCell())) {
-		PrintMessage("Belt start & end must be alighned horozontally or vertically and not the in the same cell");
+	else if ((fromCellPos.HCell() != toCellPos.HCell()) && (fromCellPos.VCell() != toCellPos.VCell())) {
+		PrintMessage("Belt start & end must be alighned horozontally or vertically");
+		return;
+	}
+	else if (fromCellPos.GetCellNum() == toCellPos.GetCellNum()) {
+		PrintMessage("Belt start & end can't be on the same cell");
 		return;
 	}
 	// Get the start X and Y coordinates of the upper left corner of the fromCell and toCell
@@ -675,7 +679,7 @@ void Output::DrawBelt(const CellPosition& fromCellPos, const CellPosition& toCel
 void Output::DrawFlag(const CellPosition& cellPos) const
 {
 	// TODO: Validate the cell position
-	if (!cellPos.IsValidCell())
+	if (!CellObjectValidation(this, cellPos))
 		return;
 
 	// Get the X and Y coordinates of the start point of the cell (its upper left corner)

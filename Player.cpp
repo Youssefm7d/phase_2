@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "GameObject.h"
+#include "SelectedCommands.h"
 
 Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNum(playerNum), currDirection(RIGHT)
 {
@@ -62,6 +63,10 @@ void Player::ResetRound(void)
 	roundFinishedOrHacked = false;
 }
 
+SelectedCommands Player::GetSelectedCommands(void)
+{
+	return moveCommands;
+}
 
 // ====== Setters and Getters ======
 
@@ -117,8 +122,8 @@ void Player::Move(Grid* pGrid/*, Command moveCommands[]*/)
 	int x, y;
 	///TODO: Implement this function using the guidelines mentioned below
 	CellPosition newPos= pCell->GetCellPosition();
-	for (int i = 0; (i < 5 && moveCommands.GetCommand(i) != NO_COMMAND); i++) {
-		switch (moveCommands.GetCommand(i))
+	for (int i = 0; (i < 5 /*&& moveCommands.GetCommand(i) != NO_COMMAND*/); i++) {
+		switch (/*moveCommands.GetCommand(i)*/1)
 		{
 		case MOVE_FORWARD_ONE_STEP:
 			newPos.AddCellNum(1, currDirection);
