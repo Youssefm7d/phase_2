@@ -19,7 +19,7 @@ class Player
 	// carried consumables
 	// carried laser type (default, double laser)
 	// isHacked (to indicate whether the player is blocked to play the round, as a result of the opponent using a hacking device)
-	//SelectedCommands moveCommands;
+	SelectedCommands moveCommands;
 	int ownedToolKits;
 	int ownedHackDevices;
 	bool doubleLaser;
@@ -52,7 +52,7 @@ public:
 	void FinishPlayingRound(void);
 	void ResetRound(void);
 
-	//SelectedCommands* GetSelectedCommands(void);
+	SelectedCommands GetSelectedCommands(void);
 
 	// ====== Drawing Functions ======
 

@@ -14,7 +14,7 @@ public:
 
 	SelectedCommands();
 
-	void AddCommand(Command selecComm, Player* pPlayer);
+	void AddCommand(Command selecComm/*, Player* pPlayer*/);
 
 	Command GetCommand(int index);
 

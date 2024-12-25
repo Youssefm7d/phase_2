@@ -29,7 +29,7 @@ class Grid
 
 	GameObject * Clipboard;	   // This is used in copy/cut/paste game objects (should be set in copy/cut and got in paste)
 
-	//AvailableCommands availableCommands;
+	AvailableCommands availableCommands;
 
 	bool endGame;	       // A boolean indicating if the Game is ended or not (a player reaches the flag cell or not)
 	//ADDED Trackers
@@ -71,7 +71,7 @@ public:
 
 	void AdvanceCurrentPlayer();     // Increments the currPlayerNum and if reaches MaxPlayerCount reset to 0 (using %)
 
-	//AvailableCommands GetAvailableCommands() const;
+	AvailableCommands GetAvailableCommands() const;
 	///TODO: add any needed setter/getter "EXCEPT" ANY setters or getters of "CellList" or "PlayerList" (Forbidden for class Responsibilities)
 
 	// ========= Other Getters =========

@@ -11,7 +11,7 @@ SelectedCommands::SelectedCommands()
 }
 
 
-void SelectedCommands::AddCommand(Command selecComm, Player* pPlayer)
+void SelectedCommands::AddCommand(Command selecComm/*, Player* pPlayer*/)
 {
 
 }

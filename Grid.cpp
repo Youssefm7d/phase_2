@@ -181,10 +181,10 @@ Belt * Grid::GetNextBelt(const CellPosition & position)
 	return NULL; // not found
 }
 
-//AvailableCommands Grid::GetAvailableCommands(void) const
-//{
-//	return pAvailableCommands;
-//}
+AvailableCommands Grid::GetAvailableCommands() const
+{
+	return availableCommands;
+}
 
 
 // ========= User Interface Functions =========

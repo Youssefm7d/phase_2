@@ -63,11 +63,10 @@ void Player::ResetRound(void)
 	roundFinishedOrHacked = false;
 }
 
-//SelectedCommands* Player::GetSelectedCommands(void)
-//{
-//	//return &moveCommands;
-//	return NULL;
-//}
+SelectedCommands Player::GetSelectedCommands(void)
+{
+	return moveCommands;
+}
 
 // ====== Setters and Getters ======
 
