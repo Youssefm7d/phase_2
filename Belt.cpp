@@ -35,7 +35,7 @@ void Belt::Apply(Grid* pGrid, Player* pPlayer)
 }
 
 void Belt::Save(ofstream& OutFile) {
-	OutFile << position.GetCellNum();
+	OutFile << position.GetCellNum() << endl;
 
 }
 void Belt::Load(ifstream& Infile) {

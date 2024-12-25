@@ -8,60 +8,19 @@ void LoadGridAction::ReadActionParameters()
     Input* pIn = pGrid->GetInput();
     Output* pOut = pGrid->GetOutput();
     // Ask the user for the filename
-    pOut->PrintMessage("Enter the filename to save the grid: ");
+    pOut->PrintMessage("Enter the filename to load the grid: ");
     filename = pIn->GetSrting(pOut);
 
     // Clear the status bar
     pOut->ClearStatusBar();
 }
 
-/*
-
-void LoadGridAction::Execute() {
-
-
-    ReadActionParameters();
-
-    std::ifstream inFile(filename);
-
-    Grid* pGrid = pManager->GetGrid();
-
-    //open ile and check
-    if (!inFile.is_open()) 
-    {
-        // If the file couldn't be opened, show an error message
-        Grid* pGrid = pManager->GetGrid();
-        pGrid->PrintErrorMessage("Error: Could not open file. Click to continue...");
-        return;
-    }
-
-    // Get the grid
-    Grid* pGrid = pManager->GetGrid();
-
-    // Read and load objects by type
-    pGrid->SaveAll(OutFile, flag);           // Save flags
-    pGrid->SaveAll(OutFile, water_pit);      // Save water pits
-    pGrid->SaveAll(OutFile, danger_zone);    // Save danger zones
-    pGrid->SaveAll(OutFile, belt);           // Save belts
-    pGrid->SaveAll(OutFile, workshop);       // Save workshop
-    pGrid->SaveAll(OutFile, antenna);        // Save antenna
-    pGrid->SaveAll(OutFile, rotating_gear);  // Save rotating gear
-
-    // Show completion message
-    pGrid->PrintErrorMessage("Grid loaded successfully! Click to continue...");
-}
-
-LoadGridAction::~LoadGridAction() {
-
-}
-*/
 
 void LoadGridAction::Execute() {
 
     Grid* pGrid = pManager->GetGrid();
     Output* pOut = pGrid->GetOutput();
     Input* pIn = pGrid->GetInput();
-
 
 
     pOut->PrintMessage("Enter the filename to load the grid: ");

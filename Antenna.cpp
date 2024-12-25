@@ -45,7 +45,7 @@ void Antenna::Apply(Grid * pGrid, Player * pPlayer)
 
 }
  void Antenna :: Save(ofstream& OutFile) {
-	 OutFile << position.GetCellNum();
+	 OutFile << position.GetCellNum()<<endl;
 
  }
  void Antenna::Load(ifstream& Infile) {

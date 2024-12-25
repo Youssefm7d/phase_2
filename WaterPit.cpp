@@ -32,7 +32,7 @@ void WaterPit::Apply(Grid * pGrid, Player * pPlayer)
 
 
 void WaterPit::Save(ofstream& OutFile) {
-	OutFile << position.GetCellNum();
+	OutFile << position.GetCellNum() << endl;
 
 }
 void WaterPit::Load(ifstream& Infile) {

@@ -29,7 +29,7 @@ void DangerZone::Apply(Grid * pGrid, Player * pPlayer)
 }
 
 void DangerZone::Save(ofstream& OutFile) {
-	OutFile << position.GetCellNum();
+	OutFile << position.GetCellNum() << endl;
 
 }
 void DangerZone::Load(ifstream& Infile) {

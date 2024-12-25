@@ -21,7 +21,7 @@ void Workshop::Apply(Grid * pGrid, Player * pPlayer)
 
 
 void Workshop::Save(ofstream& OutFile) {
-	OutFile << position.GetCellNum();
+	OutFile << position.GetCellNum() << endl;
 
 }
 void Workshop::Load(ifstream& Infile) {

@@ -41,7 +41,7 @@ void Flag::Apply(Grid* pGrid, Player* pPlayer)
 }
 
 void Flag::Save(ofstream& OutFile) {
-	OutFile << position.GetCellNum();
+	OutFile << position.GetCellNum() << endl;
 
 }
 void Flag::Load(ifstream& Infile) {

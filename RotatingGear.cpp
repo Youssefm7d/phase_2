@@ -35,7 +35,7 @@ bool RotatingGear::GetisClockWise() const
 }
 
 void RotatingGear::Save(ofstream& OutFile) {
-	OutFile << position.GetCellNum();
+	OutFile << position.GetCellNum() << endl;
 
 }
 void RotatingGear::Load(ifstream& Infile) {
