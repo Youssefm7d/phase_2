@@ -32,13 +32,13 @@ void AddDangerZoneAction::Execute() {
 
 	// 1-Create a flag object
 
-	DangerZone* WaterPitpointer = new DangerZone(DangerPos);
+	DangerZone* Dangerpointer = new DangerZone(DangerPos);
 
 	// 2-get a pointer to the Grid from the ApplicationManager
 	Grid* pGrid = pManager->GetGrid();
 
 	// 3-Add the flag object to the GameObject of its Cell:
-	bool addcheck = pGrid->AddObjectToCell(WaterPitpointer);
+	bool addcheck = pGrid->AddObjectToCell(Dangerpointer);
 
 	// 4-Check if the WaterPit was added and print an errror message if flag couldn't be added
 	if (!addcheck) {

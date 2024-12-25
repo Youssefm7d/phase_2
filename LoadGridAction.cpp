@@ -15,48 +15,37 @@ void LoadGridAction::ReadActionParameters()
     pOut->ClearStatusBar();
 }
 
-
 void LoadGridAction::Execute() {
+    
+    ReadActionParameters();
 
     Grid* pGrid = pManager->GetGrid();
     Output* pOut = pGrid->GetOutput();
-    Input* pIn = pGrid->GetInput();
-
-
-    pOut->PrintMessage("Enter the filename to load the grid: ");
-    std::string filename = pIn->GetSrting(pOut);
 
     std::ifstream InFile(filename);
     if (!InFile.is_open()) {
         pGrid->PrintErrorMessage("Error opening file for loading.");
         return;
     }
-
+    // remoe new grid
+    for (int i = 0; i < NumVerticalCells; ++i)
+    {
+        for (int j = 0; j < NumHorizontalCells; ++j)
+        {
+            CellPosition pos(i, j); // Create a CellPosition for the current cell
+            pGrid->RemoveObjectFromCell(pos); // Remove the object from this cell
+        }
+    }
     // Load all game objects by type with headers
-    std::string header;
-    InFile >> header; // Read header
     pGrid->LoadAll(InFile, flag);
-
-    InFile >> header; // Read header
     pGrid->LoadAll(InFile, water_pit);
-
-    InFile >> header; // Read header
     pGrid->LoadAll(InFile, danger_zone);
-
-    InFile >> header; // Read header
     pGrid->LoadAll(InFile, belt);
-
-    InFile >> header; // Read header
     pGrid->LoadAll(InFile, workshop);
-
-    InFile >> header; // Read header
     pGrid->LoadAll(InFile, antenna);
-
-    InFile >> header; // Read header
     pGrid->LoadAll(InFile, rotating_gear);
-
-    InFile.close();
     pOut->PrintMessage("Grid loaded successfully.");
+
 }
 LoadGridAction::~LoadGridAction() {
 
