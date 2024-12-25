@@ -25,6 +25,11 @@ void AddBeltAction::ReadActionParameters()
 
 	///TODO: Make the needed validations on the read parameters
 
+	if (!startPos.IsValidCell() || !endPos.IsValidCell()) {
+		pOut->PrintMessage("invalid cell position");
+		startPos = CellPosition(-1, -1); //remoVe placed flag
+		return;
+	}
 
 
 	// Clear messages

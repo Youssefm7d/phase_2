@@ -1,5 +1,4 @@
 #include "Player.h"
-
 #include "GameObject.h"
 
 Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNum(playerNum), currDirection(RIGHT)
@@ -7,7 +6,62 @@ Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNu
 	this->pCell = pCell;
 
 	// Make all the needed initialization or validations
+	ownedToolKits= 0;
+	ownedHackDevices= 0;
+	doubleLaser= false;
+	roundFinishedOrHacked= false;
 }
+
+
+// ====== Updating Methods ======
+
+void Player::BuyToolKit(void)
+{
+	ownedToolKits++;
+}
+bool Player::UseToolKit(void)
+{
+	if (ownedToolKits > 0) {
+		ownedToolKits--;
+		return true;
+	}
+	else
+		return false;
+}
+
+void Player::BuyHackDevice(void)
+{
+	ownedHackDevices++;
+}
+bool Player::UseHackDevice(void)
+{
+	if (ownedHackDevices > 0) {
+		ownedHackDevices--;
+		return true;
+	}
+	else
+		return false;
+}
+
+bool Player::BuyDoubleLaser(void)
+{
+	if (!doubleLaser) {
+		doubleLaser = true;
+		return true;
+	}
+	else
+		return false;
+}
+
+void Player::FinishPlayingRound(void)
+{
+	roundFinishedOrHacked = true;
+}
+void Player::ResetRound(void)
+{
+	roundFinishedOrHacked = false;
+}
+
 
 // ====== Setters and Getters ======
 
@@ -23,7 +77,8 @@ Cell* Player::GetCell() const
 
 void Player::SetHealth(int h)
 {
-	this->health = h;
+	if (h > 0 && h < 10)
+		this->health = h;
 	///TODO: Do any needed validations
 }
 
@@ -57,13 +112,13 @@ void Player::ClearDrawing(Output* pOut) const
 
 // ====== Game Functions ======
 
-void Player::Move(Grid* pGrid, Command moveCommands[])
+void Player::Move(Grid* pGrid/*, Command moveCommands[]*/)
 {
 	int x, y;
 	///TODO: Implement this function using the guidelines mentioned below
 	CellPosition newPos= pCell->GetCellPosition();
-	for (int i = 0; (i < 5 && moveCommands[i] != NO_COMMAND); i++) {
-		switch (moveCommands[i])
+	for (int i = 0; (i < 5 && moveCommands.GetCommand(i) != NO_COMMAND); i++) {
+		switch (moveCommands.GetCommand(i))
 		{
 		case MOVE_FORWARD_ONE_STEP:
 			newPos.AddCellNum(1, currDirection);

@@ -3,7 +3,6 @@
 
 #include "CMUgraphicsLib\CMUgraphics.h"
 
-#define MAX_PLAYERS_NUM 2
 
 #define CW	true
 #define ACW	false

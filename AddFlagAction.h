@@ -11,7 +11,6 @@ class AddFlagAction :public Action
 	// [Action Parameters]
 	CellPosition flagPos; // 1- The position of the flag
 public:
-	
 	AddFlagAction(ApplicationManager *pApp);
 	virtual void ReadActionParameters(); // Reads action parameters 
 

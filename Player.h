@@ -2,6 +2,7 @@
 
 #include "Grid.h"
 #include "Cell.h"
+#include "SelectedCommands.h"
 
 class Player
 {
@@ -18,6 +19,11 @@ class Player
 	// carried consumables
 	// carried laser type (default, double laser)
 	// isHacked (to indicate whether the player is blocked to play the round, as a result of the opponent using a hacking device)
+	SelectedCommands moveCommands;
+	int ownedToolKits;
+	int ownedHackDevices;
+	bool doubleLaser;
+	bool roundFinishedOrHacked;
 	
 	
 public:
@@ -35,6 +41,17 @@ public:
 
 	///TODO: You can add setters and getters for data members here (if needed)
 
+	void BuyToolKit(void);
+	bool UseToolKit(void);
+
+	void BuyHackDevice(void);
+	bool UseHackDevice(void);
+
+	bool BuyDoubleLaser(void);
+
+	void FinishPlayingRound(void);
+	void ResetRound(void);
+
 	// ====== Drawing Functions ======
 
 	void Draw(Output* pOut) const;			// Draws the Player's Triangle on its current cell
@@ -43,7 +60,7 @@ public:
 
 	// ====== Game Functions ======
 
-	void Move(Grid * pGrid, Command moveCommands[]);	// Moves the Player with the passed move command
+	void Move(Grid * pGrid/*, Command moveCommands[]*/);	// Moves the Player with the passed move command
 														// and Applies the Game Object's effect (if any) of the end reached cell 
 														// for example, if the end cell contains a belt, take it
 	
