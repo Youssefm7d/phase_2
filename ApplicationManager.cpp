@@ -12,6 +12,7 @@
 #include "AddDangerZoneAction.h"
 #include "SaveGridAction.h"
 #include "DeleteGameObject.h"
+#include "LoadGridAction.h"
 
 ApplicationManager::ApplicationManager()
 {
@@ -80,15 +81,22 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 	case TO_PLAY_MODE:					//TODO:
 		pOut->CreatePlayModeToolBar(); // temporary till you made its action class (CHANGE THIS LATTER)
+		UI.InterfaceMode = MODE_PLAY;
+		pGrid->UpdateInterface();
+		pOut->PrintMessage("Play");
 		break;
 
 	
 
 	case TO_DESIGN_MODE:				//TODO:
 		pOut->CreateDesignModeToolBar(); // temporary till you made its action class (CHANGE THIS LATTER)
+		UI.InterfaceMode = MODE_DESIGN;
+		pOut->ClearGridArea();
+		pOut->PrintMessage("DESIGN");
 		break;
 
-		
+	case NEW_GAME:
+
 
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 
@@ -116,6 +124,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		// create an object of AddFlagAction here
 		pAct = new SaveGridAction(this);
 		break;
+
+	case OPEN_GRID:
+		// create an object of AddFlagAction here
+		pAct = new LoadGridAction(this);
+		break;
+
 
 	case DELETE_GAME_OBJECT:
 		// create an object of AddFlagAction here

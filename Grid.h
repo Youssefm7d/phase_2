@@ -43,7 +43,7 @@ public:
 	GameObject* Get_object_pos(const CellPosition& pos) const;
 
 	void SaveAll(std::ofstream& OutFile, Objectschoise Type);
-	void Grid::LoadAll(std::ifstream& InFile, Objectschoise Type);
+	void LoadAll(std::ifstream& InFile, Objectschoise Type);
 
 	// ========= Adding or Removing GameObjects to Cells =========
 
@@ -56,7 +56,7 @@ public:
 
 	void UpdatePlayerCell(Player * player, const CellPosition & newPosition); // Update the player's pCell with the CellList's Cell pointer of the "newPosition",
 	                                                                          // Clears the player's circle from the previous cell
-	    																	  // and  Draws it in the new cell
+																		  // and  Draws it in the new cell
 
 	// ========= Setters and Getters Functions =========
 
@@ -106,7 +106,6 @@ public:
 	};
 	*/
 
-	//***************sae***********************//
 
 
 };

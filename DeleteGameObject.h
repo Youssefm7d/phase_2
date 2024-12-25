@@ -5,6 +5,9 @@
 #include "GameObject.h"
 #include "CellPosition.h"
 #include "Input.h"
+#include "Flag.h"
+#include "Cell.h"
+#include "Antenna.h"
 
 class DeleteGameObject : public Action
 {

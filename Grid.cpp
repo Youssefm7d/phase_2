@@ -88,6 +88,7 @@ void Grid::RemoveObjectFromCell(const CellPosition & pos)
 	}
 }
 
+
 void Grid::UpdatePlayerCell(Player * player, const CellPosition & newPosition)
 {
 	// Clear the player's triangle from the old cell position
@@ -281,7 +282,7 @@ void Grid::SaveAll(std::ofstream& OutFile, Objectschoise Type)
 void Grid::LoadAll(std::ifstream& InFile, Objectschoise Type) {
 	int count;
 	InFile >> count; // Read the number of objects of this type
-
+	int cellNum;
 	for (int i = 0; i < count; ++i)
 	{
 		GameObject* pGameObject = nullptr;
@@ -290,32 +291,38 @@ void Grid::LoadAll(std::ifstream& InFile, Objectschoise Type) {
 		switch (Type)
 		{
 		case flag:
-			pGameObject = new Flag(CellPosition());
+			InFile >> cellNum;
+			pGameObject = new Flag(CellPosition::GetCellPositionFromNum(cellNum));
 			break;
 		case water_pit:
-			pGameObject = new WaterPit(CellPosition());
+			InFile >> cellNum;
+			pGameObject = new WaterPit(CellPosition::GetCellPositionFromNum(cellNum));
 			break;
 		case danger_zone:
-			pGameObject = new DangerZone(CellPosition());
+			InFile >> cellNum;
+			pGameObject = new DangerZone(CellPosition::GetCellPositionFromNum(cellNum));
 			break;
 		case belt:
-			pGameObject = new Belt(CellPosition(), CellPosition());
+			InFile >> cellNum;
+			pGameObject = new DangerZone(CellPosition::GetCellPositionFromNum(cellNum));
 			break;
 		case workshop:
-			pGameObject = new Workshop(CellPosition());
+			InFile >> cellNum;
+			pGameObject = new Workshop(CellPosition::GetCellPositionFromNum(cellNum));
 			break;
 		case antenna:
-			pGameObject = new Antenna(CellPosition());
+			InFile >> cellNum;
+			pGameObject = new Antenna(CellPosition::GetCellPositionFromNum(cellNum));
 			break;
 		case rotating_gear:
-			pGameObject = new RotatingGear(CellPosition(),0);
+			int rotationDirection;
+			InFile >> cellNum >> rotationDirection;
+			pGameObject = new RotatingGear(CellPosition::GetCellPositionFromNum(cellNum), rotationDirection);
 			break;
 		}
 
 		if (pGameObject)
 		{
-			// Load the object's data from the file
-			pGameObject->Load(InFile);
 			AddObjectToCell(pGameObject);
 		}
 	}

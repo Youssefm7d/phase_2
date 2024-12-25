@@ -25,7 +25,7 @@ void DeleteGameObject::ReadActionParameters()
 
 void DeleteGameObject::Execute()
 {
-
+   
 
     if (!DeleteActive)
     {
@@ -46,9 +46,13 @@ void DeleteGameObject::Execute()
 
     GameObject* pObject = pGrid->Get_object_pos(targetPosition);
 
+    if (pObject->GetType() == flag) {
+        Flag::minusflagcount();
+    }
     // Check if an object was deleted
     if (pObject)
     {
+        
         pGrid->RemoveObjectFromCell(targetPosition);
         delete pObject; // Free memory
         pOut->DrawCell(targetPosition,UI.CellColor);
