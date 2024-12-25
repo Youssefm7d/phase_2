@@ -14,7 +14,12 @@
 #include "DeleteGameObject.h"
 #include "LoadGridAction.h"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #include "copy.h"
+=======
+#include "SelectCommandAction.h"
+#include "ExecuteCommandsAction.h"
+>>>>>>> Stashed changes
 =======
 #include "SelectCommandAction.h"
 #include "ExecuteCommandsAction.h"
@@ -143,10 +148,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	case COPY_GAME_OBJECT:
 		pAct = new CopyGameObject(this);
 		break;
 =======
+=======
+>>>>>>> Stashed changes
 	case SELECT_COMMAND:
 		pAct = new SelectCommandAction(this);
 		break;
@@ -155,6 +163,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new ExecuteCommandsAction(this);
 		break;
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 
